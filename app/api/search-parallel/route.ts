@@ -110,10 +110,10 @@ export async function POST(request: NextRequest) {
             });
 
             // Auto-fetch remaining pages (capped)
-            if (pagecount > 2 && totalVideosFound < MAX_TOTAL_VIDEOS && !signal.aborted) {
+            if (pagecount > 1 && totalVideosFound < MAX_TOTAL_VIDEOS && !signal.aborted) {
               const maxPages = Math.min(pagecount, MAX_PAGES_PER_SOURCE);
               const remainingPages = Array.from(
-                { length: maxPages - 2 }, (_, i) => i + 3
+                { length: maxPages - 1 }, (_, i) => i + 2
               );
 
               for (const pg of remainingPages) {
