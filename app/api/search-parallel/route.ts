@@ -113,7 +113,7 @@ export async function POST(request: NextRequest) {
             if (pagecount > 1 && totalVideosFound < MAX_TOTAL_VIDEOS && !signal.aborted) {
               const maxPages = Math.min(pagecount, MAX_PAGES_PER_SOURCE);
               const remainingPages = Array.from(
-                { length: maxPages - 1 }, (_, i) => i + 2
+                { length: maxPages - 2 }, (_, i) => i + 2
               );
 
               for (const pg of remainingPages) {
